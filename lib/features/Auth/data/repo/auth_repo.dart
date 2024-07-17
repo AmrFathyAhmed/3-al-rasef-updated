@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 
-abstract class AuthRepo{
-  Future logInWithGoogle();
-  Future logInWithFacebook();
-  Future signUpInformation(@required String name ,@required String email,@required String phoneNumber,@required passWord,@required address);
+abstract class AuthRepo {
+  Future<UserCredential> logIn(@required String email, @required password);
+
+  Future<void> signUpInformation(@required String name, @required String email,
+      @required String phoneNumber, @required password, @required address);
 }

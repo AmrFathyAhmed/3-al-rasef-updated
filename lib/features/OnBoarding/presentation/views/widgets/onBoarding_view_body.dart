@@ -6,7 +6,7 @@ import 'custom_indicator.dart';
 import 'custom_pageVeiw.dart';
 
 class OnBoardingViewBody extends StatefulWidget {
-  const OnBoardingViewBody({Key? key}) : super(key: key);
+  const OnBoardingViewBody({super.key});
 
   @override
   State<OnBoardingViewBody> createState() => _OnBoardingViewBodyState();

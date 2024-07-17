@@ -50,13 +50,24 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
           print('The password provided is too weak.');
           showDialog(
               context: context,
-              builder: (context) => DialogMassage(onTap: (){Navigator.of(context).pop();},message: "The password provided is too weak.",imageTitle: 'lib/asset/image/Icons/cancel.png',));
+              builder: (context) => DialogMassage(
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
+                    message: "The password provided is too weak.",
+                    imageTitle: 'lib/asset/image/Icons/cancel.png',
+                  ));
         } else if (e.code == 'email-already-in-use') {
           print('The account already exists for that email.');
           showDialog(
               context: context,
-              builder: (context) => DialogMassage(onTap: (){Navigator.of(context).pop();},message: "هذا الحساب مستخدم بالفعل !!",imageTitle: 'lib/asset/image/Icons/cancel.png',));
-
+              builder: (context) => DialogMassage(
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
+                    message: "هذا الحساب مستخدم بالفعل !!",
+                    imageTitle: 'lib/asset/image/Icons/cancel.png',
+                  ));
         }
         // Return null in case of any FirebaseAuthException
         return null;
@@ -252,4 +263,3 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
     );
   }
 }
-

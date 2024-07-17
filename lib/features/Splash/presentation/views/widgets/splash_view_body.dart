@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/size_config.dart';
 
 class SplashViewBody extends StatefulWidget {
-  const SplashViewBody({Key? key}) : super(key: key);
+  const SplashViewBody({super.key});
 
   @override
   _SplashViewBodyState createState() => _SplashViewBodyState();
@@ -35,7 +35,6 @@ class _SplashViewBodyState extends State<SplashViewBody>
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -46,23 +45,28 @@ class _SplashViewBodyState extends State<SplashViewBody>
           child: FadeTransition(
             opacity: fadingAnimation,
             child: Image.asset(
-       Assets.imagesLogo,
+              Assets.imagesLogo,
             ),
           ),
         ),
       ],
     );
   }
+
   bool? isLogin;
+
   void goToNextView() {
     Future.delayed(const Duration(seconds: 3), () {
-      var user= FirebaseAuth.instance.currentUser;
-     // if(user==null){
-     // isLogin =false;
-   // }else{
-    //    isLogin=true;
-     // }
-      Navigator.pushReplacementNamed(context, isLogin ==false?"OnBoardView":"HomeView", );
+      var user = FirebaseAuth.instance.currentUser;
+      if (user == null) {
+        isLogin = false;
+      } else {
+        isLogin = true;
+      }
+      Navigator.pushReplacementNamed(
+        context,
+        isLogin == false ? "OnBoardView" : "HomeView",
+      );
       //Get.to(() => isLogin==false ?const OnBoardingView():HomeView(),transition:Transition.fade );
     });
   }

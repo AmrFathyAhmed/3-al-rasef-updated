@@ -1,22 +1,35 @@
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+
+import '../../../../core/widget/Dailog_message.dart';
 import 'auth_repo.dart';
 
 class AuthRepoImpl  extends AuthRepo{
   @override
-  Future logInWithFacebook() {
+  Future<UserCredential> logIn(String email, password) async {
 
-    throw UnimplementedError();
-  }
 
-  @override
-  Future logInWithGoogle() {
+    final FirebaseAuth _auth = FirebaseAuth.instance;
 
-    throw UnimplementedError();
+
+
+        final userCredential = await _auth.signInWithEmailAndPassword(
+          email: email!,
+          password: password!,
+        );
+
+
+
+     return userCredential;
+
   }
 
   @override
   Future signUpInformation(String name, String email, String phoneNumber, passWord, address) {
+    // TODO: implement signUpInformation
     throw UnimplementedError();
   }
+ 
 
 }
