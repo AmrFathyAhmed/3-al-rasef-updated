@@ -149,7 +149,7 @@ class LoginViewBody extends StatelessWidget {
               child: CustomButton(
                 onTap: () async {
                   if (formKey.currentState!.validate()) {
-                    BlocProvider.of<LoginCubit>(context).login(email, password);
+                  await  BlocProvider.of<LoginCubit>(context).login(email, password);
                   }
                 },
                 text: 'تسجيل الدخول',

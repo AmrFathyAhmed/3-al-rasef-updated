@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 import 'features/Auth/presentation/manger/login_cubit/login_cubit.dart';
+import 'features/Auth/presentation/manger/sign_up_cubit/sign_up_cubit.dart';
 import 'features/Auth/presentation/views/login/login_view.dart';
 import 'features/Category/presentation/views/category_view.dart';
 import 'features/Home/presentation/views/home_veiw.dart';
@@ -31,8 +32,11 @@ class FoodMarket extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => LoginCubit(),
+    return MultiBlocProvider(providers:[
+      BlocProvider(create: (context) => LoginCubit(),),
+      BlocProvider(create: (context) => SignUpCubit(),),
+
+    ] ,
       child: GetMaterialApp(
         routes: {
           "HomeView": (context) => const HomeView(),
